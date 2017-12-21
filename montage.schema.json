@@ -57,7 +57,7 @@
         "data": {
           "default": {},
           "description": "data of the montage (depends on montage type)",
-          "oneOfFrom": "metadata.ressource_type",
+          "oneOfFrom": "metadata.montage_type",
           "oneOf": [
             { "$ref": "#/definitions/micropublication" }
           ]
