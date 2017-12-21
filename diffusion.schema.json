@@ -8,11 +8,13 @@
     "type": {
       "type": "string",
       "enum": ["diffusion"],
-      "default": "diffusion"
+      "default": "diffusion",
+      "editable": false
     },
     "date_started": {
       "type": "number",
-      "description": "absolute time date of the diffusion start"
+      "description": "absolute time date of the diffusion start",
+      "editable": false
     },
     "montage_id": {
       "type": "string",
@@ -21,12 +23,15 @@
     "montage_type": {
       "type": "string",
       "description": "type of the montage being diffused",
-      "enum": ["micropublication", "dynamic", "static"]
+      "enum": ["micropublication", "dynamic", "static"],
+      "editable": false
     },
     "status": {
       "type": "string",
       "description": "status of the diffusion",
-      "enum": ["processing", "success", "failure"]
+      "enum": ["processing", "success", "failure"],
+      "default": "processing",
+      "editable": false
     },
     "parameters": {
       "default": {},
@@ -46,6 +51,7 @@
         "targets":{
           "type": "array",
           "title": "targets",
+          "default": [],
           "items":
             {
               "type": "string",

@@ -9,7 +9,8 @@
         "type": {
           "type": "string",
           "enum": ["montage"],
-          "default": "montage"
+          "default": "montage",
+          "editable": false
         },
         "metadata": {
           "description": "metadata of the montage",

@@ -10,7 +10,8 @@
         {
             "type": "string",
             "enum": ["composition"],
-            "default": "composition"
+            "default": "composition",
+            "editable": false
         },
         "metadata":
         {

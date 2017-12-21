@@ -9,7 +9,8 @@
         "type": {
           "type": "string",
           "enum": ["resource"],
-          "default": "resource"
+          "default": "resource",
+          "editable": false
         },
         "metadata": {
           "description": "metadata of the resource",

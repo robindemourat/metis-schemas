@@ -9,7 +9,8 @@
     "type": {
       "type": "string",
       "enum": ["user"],
-      "default": "user"
+      "default": "user",
+      "editable": false
     },
     "email": {
       "type": "string",
