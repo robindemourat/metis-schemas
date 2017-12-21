@@ -26,6 +26,11 @@
       "enum": ["micropublication", "dynamic", "static"],
       "editable": false
     },
+    "montage_title": {
+      "type": "string",
+      "description": "title of the montage being diffused",
+      "editable": false
+    },
     "status": {
       "type": "string",
       "description": "status of the diffusion",
