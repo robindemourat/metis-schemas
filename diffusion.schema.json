@@ -28,10 +28,32 @@
       "description": "status of the diffusion",
       "enum": ["processing", "success", "failure"]
     },
-    "target": {
-      "type": "string",
-      "description": "target of the diffusion"
+    "parameters": {
+      "default": {},
+      "description": "data of the resource (depends on resource type)",
+      "oneOfFrom": "montage_type",
+      "oneOf": [
+        { "$ref": "#/definitions/micropublication" }
+      ]
     }
   },
-  "required": ["type", "montage_id"]
+  "required": ["type", "montage_id"],
+
+  "definitions": {
+    "micropublication": {
+      "type": "object",
+      "properties": {
+        "targets":{
+          "type": "array",
+          "title": "targets",
+          "items":
+            {
+              "type": "string",
+              "enum": ["twitter","facebook", "mailing"]
+            }
+          } 
+        }
+      }
+    }
+  }
 }
