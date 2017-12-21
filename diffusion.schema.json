@@ -38,9 +38,14 @@
       "default": "processing",
       "editable": false
     },
+    "comment": {
+      "type": "string",
+      "description": "comment on the diffusion",
+      "default": ""
+    },
     "parameters": {
       "default": {},
-      "description": "data of the resource (depends on resource type)",
+      "description": "montage parameters",
       "oneOfFrom": "montage_type",
       "oneOf": [
         { "$ref": "#/definitions/micropublication" }
