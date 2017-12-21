@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "title": "Diffusion",
+  "description": "Diffusion schema",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["diffusion"],
+      "default": "diffusion"
+    },
+    "date_started": {
+      "type": "number",
+      "description": "absolute time date of the diffusion start"
+    },
+    "montage_id": {
+      "type": "string",
+      "description": "id of the montage being diffused"
+    },
+    "montage_type": {
+      "type": "string",
+      "description": "type of the montage being diffused",
+      "enum": ["micropublication", "dynamic", "static"]
+    },
+    "status": {
+      "type": "string",
+      "description": "status of the diffusion",
+      "enum": ["processing", "success", "failure"]
+    },
+    "target": {
+      "type": "string",
+      "description": "target of the diffusion"
+    }
+  },
+  "required": ["type", "montage_id"]
+}
