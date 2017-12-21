@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "title": "User",
+  "description": "User schema",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+
+
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["user"]
+    },
+    "email": {
+      "type": "string",
+      "description": "email of the user"
+    },
+    "password": {
+      "type": "string",
+      "description": "password of the user"
+    },
+    "admin": {
+      "type": "boolean",
+      "description": "whether user is admin or not"
+    },
+    "name": {
+      "type": "string",
+      "description": "name of the user"
+    }
+  },
+  "required": ["type", "email"]
+}

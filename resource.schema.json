@@ -1,0 +1,94 @@
+{
+    "id": "resource",
+    "title": "Resource",
+    "description": "Resource used in plurishing",
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "type": "object",
+    "properties":
+    {
+        "type": {
+          "type": "string",
+          "enum": ["resource"],
+          "default": "resource"
+        },
+        "metadata": {
+          "description": "metadata of the resource",
+          "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the resource",
+                "default": ""
+              },
+              "creators": {
+                "type": "array",
+                "description": "creators of the resource",
+                "default": [],
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "given": {
+                      "type": "string",
+                      "default": ""
+                    },
+                    "family": {
+                      "type": "string",
+                      "default": ""
+                    },
+                    "role": {
+                      "type": "string",
+                      "default": ""
+                    }
+                  },
+                  "required": ["given", "family"]
+                }
+              },
+              "ressource_type": {
+                "type": "string",
+                "enum": ["image"],
+                "default": "image"
+              },
+              "description": {
+                "type": "string",
+                "default": ""
+              }
+            }
+        },
+        "data": {
+          "default": {},
+          "description": "data of the resource (depends on resource type)",
+          "oneOfFrom": "metadata.ressource_type",
+          "oneOf": [
+            { "$ref": "#/definitions/image" }
+          ]
+        }
+    },
+    "required": ["type", "metadata", "data"],
+
+    "definitions": {
+      "image": {
+        "type": "object",
+         "properties": {
+          "rgb_image_asset_id": {
+            "type": "string",
+            "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+            "description": "rgb/rvb image asset uuid of the resource",
+            "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+          },
+          "cmyb_image_asset_id": {
+            "type": "string",
+            "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+            "description": "cmyb/cmjn image asset uuid of the resource",
+            "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+          },
+          "bw_image_asset_id": {
+            "type": "string",
+            "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+            "description": "black & white image asset uuid of the resource",
+            "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+          }
+         },
+          "additionalProperties": false
+      }
+    }
+}

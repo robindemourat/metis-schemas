@@ -1,0 +1,306 @@
+{
+    "id": "composition",
+    "title": "Composition (aka peritext lite)",
+    "description": "Composition used in plurishing",
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "type": "object",
+    "properties":
+    {
+        "type":
+        {
+            "type": "string",
+            "enum": ["composition"],
+            "default": "composition"
+        },
+        "metadata":
+        {
+            "description": "metadata of the composition",
+            "type": "object",
+            "properties":
+            {
+                "title":
+                {
+                    "type": "string",
+                    "description": "Title of the composition",
+                    "default": ""
+                },
+                "subtitle":
+                {
+                    "type": "string",
+                    "description": "Subtitle of the composition",
+                    "default": ""
+                },
+                "creators":
+                {
+                    "type": "array",
+                    "description": "creators of the composition",
+                    "default": [],
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "given":
+                            {
+                                "type": "string",
+                                "default": ""
+                            },
+                            "family":
+                            {
+                                "type": "string",
+                                "default": ""
+                            },
+                            "role":
+                            {
+                                "type": "string",
+                                "default": ""
+                            }
+                        },
+                        "required": ["given"]
+                    }
+                },
+                "abstract_original":
+                {
+                    "type": "string",
+                    "default": ""
+                },
+                "abstract_english":
+                {
+                    "type": "string",
+                    "default": ""
+                }
+            }
+        },
+        "contents":
+        {
+            "$ref": "#/definitions/draft_raw_content"
+        },
+        "notes_order":
+        {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "default": [],
+            "description": "order of the notes to display in the composition"
+        },
+
+        "notes":
+        {
+            "type": "object",
+            "description": "hashmap of notes commenting the main contents",
+            "default": {},
+            "patternProperties":
+            {
+                "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}":
+                {
+                    "type": "object",
+                    "properties":
+                    {
+                        "id": {
+                            "type": "string",
+                            "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+                            "description": "id of the note (uuid v4)"
+                        },
+                        "order": {
+                            "type": "number"
+                        },
+                        "contents":
+                        {
+                            "description": "representation of the note content",
+                            "$ref": "#/definitions/draft_raw_content"
+                        }
+                    }
+                }
+            }
+        },
+
+        "resources":
+        {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "default": [],
+            "description": "list of linked resources ids"
+        },
+
+        "contextualizers":
+        {
+            "type": "object",
+            "description": "hashmap of contextualizers used by the composition",
+            "default": {},
+            "patternProperties":
+            {
+                "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}":
+                {
+                    "description": "content of the contextualizer",
+                    "$ref": "#/definitions/contextualizer"
+                }
+            }
+        },
+
+        "contextualizations":
+        {
+            "type": "object",
+            "description": "hashmap of contextualizations used by the composition",
+            "default": {},
+            "patternProperties":
+            {
+                "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}":
+                {
+                    "description": "content of the contextualization",
+                    "$ref": "#/definitions/contextualization"
+                }
+            }
+        }
+    },
+    "required": ["type", "metadata", "contents", "notes", "notes_order", "resources", "contextualizers", "contextualizations"],
+
+    "definitions":
+    {
+        "contextualizer": {
+          "type": "object",
+          "properties": 
+          {
+            "id": {
+            "type": "string",
+            "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+            },
+            "type": {
+                "type": "string",
+                "description": "type of the contextualizer"
+            },
+            "insertionType": {
+                "type": "string",
+                "enum": ["block", "inline"],
+                "description": "whether contextualizer targets an inline or block contextualization"
+            }
+          }
+        },
+        "contextualization": {
+          "type": "object",
+          "properties": 
+          {
+            "id": {
+                "type": "string",
+                "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+            },
+            "resourceId": {
+                "type": "string",
+                "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+            },
+            "contextualizerId": {
+                "type": "string",
+                "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+            },
+            "sectionId": {
+                "type": "string",
+                "description": "id of the section in which the contextualization is implemented (note: this is some sugar for implementation, as contextualization pointer in related section would suffice to link contextualizations and sections)",
+                "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+            },
+            "type": {
+                "type": "string",
+                "description": "type of the contextualizer being used for this contextualization (note: this is some sugar for implementation, as this information is redundant with associated contextualizer)",
+                "default": ""
+            },
+            "title": {
+                "type": "string",
+                "description": "specific title of the contextualization",
+                "default": ""
+            },
+            "legend": {
+                "type": "string",
+                "description": "legend of the contextualization",
+                "default": ""
+            }
+          }
+        },
+        "draft_raw_content":
+        {
+            "type": "object",
+            "properties":
+            {
+                "entityMap":
+                {
+                    "type": "object",
+                    "description": "List of entities annotating the contents",
+                    "default":
+                    {},
+                    "patternProperties":
+                    {
+                        "^[a-zA-Z0-9]*$":
+                        {
+                            "properties":
+                            {
+                                "type":
+                                {
+                                    "type": "string",
+                                    "description": "Custom type of the entity (examples in peritext: INLINE_ASSET, BLOCK_ASSET, NOTE_POINTER)"
+                                },
+                                "mutability":
+                                {
+                                    "type": "string",
+                                    "description": "Whether the entity is editable in a draft-js editor"
+                                },
+                                "data":
+                                {
+                                    "type": "object",
+                                    "description": "data to embed in the entity"
+                                }
+                            }
+                        }
+                    }
+                },
+
+                "blocks":
+                {
+                    "type": "array",
+                    "description": "List of contents blocks of the item",
+                    "default": [],
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "key":
+                            {
+                                "type": "string",
+                                "description": "identifier of the block"
+                            },
+                            "text":
+                            {
+                                "type": "string",
+                                "description": "Text of the block"
+                            },
+                            "type":
+                            {
+                                "type": "string",
+                                "description": "Type of block (atomic, ...)"
+                            },
+                            "depth":
+                            {
+                                "type": "number"
+                            },
+                            "inlineStyleRanges":
+                            {
+                                "type": "array",
+                                "description": "list of styling annotations"
+                            },
+                            "entityRanges":
+                            {
+                                "type": "array",
+                                "description": "List of entities mentions"
+                            },
+                            "data":
+                            {
+                                "type": "object"
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}

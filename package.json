@@ -1,0 +1,12 @@
+{
+  "name": "plurishing-schemas",
+  "version": "0.0.1",
+  "description": "Multimodal publishing schemas",
+  "main": "index.js",
+  "author": "Robin de Mourat <robin.demourat@gmail.com> (https://github.com/robindemourat)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robindemourat/plurishing-schemas/issues"
+  },
+  "homepage": "https://github.com/robindemourat/plurishing-schemas#readme"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "title": "Asset",
+  "description": "Asset schema",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["asset"]
+    },
+    "filename": {
+      "type": "string",
+      "description": "filetype of the asset"
+    },
+    "mimetype": {
+      "type": "string"
+    }
+  },
+  "required": ["type", "filename"]
+}
