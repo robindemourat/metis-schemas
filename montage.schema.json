@@ -78,6 +78,10 @@
             "type": "boolean",
             "default": true,
             "description": "whether to include abstract in the micropublication"
+          },
+          "link": {
+            "type": "string",
+            "description": "the link to point to from the montage"
           }
          },
           "additionalProperties": false
