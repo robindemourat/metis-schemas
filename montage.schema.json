@@ -96,6 +96,7 @@
           "compositions": {
             "type": "array",
             "description": "compositions summary",
+            "default": [],
             "items": {
               "type": "object",
               "description": "composition summonning",
@@ -141,6 +142,7 @@
             "items": {
               "type": "object",
               "description": "composition summonning",
+              "default": [],
               "properties": {
                 "target_composition_id": {
                   "type": "string",
