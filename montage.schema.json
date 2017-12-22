@@ -133,7 +133,7 @@
         "properties": {
           "cover_color": {
             "type": "string",
-            "default": "",
+            "default": "#FFFFFF",
             "description": "color of the cover for the montage"
           },
           "compositions": {
@@ -142,7 +142,7 @@
             "items": {
               "type": "object",
               "description": "composition summonning",
-              "default": [],
+              "default": {},
               "properties": {
                 "target_composition_id": {
                   "type": "string",
@@ -153,11 +153,6 @@
                   "description": "template to use for displaying this composition",
                   "enum": ["article"],
                   "default": "article"
-                },
-                "css_code": {
-                  "type": "string",
-                  "default": "",
-                  "description": "local css for that composition"
                 }
               }
             }
