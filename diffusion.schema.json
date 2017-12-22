@@ -65,7 +65,8 @@
           "items":
             {
               "type": "string",
-              "enum": ["twitter","facebook", "mailing"]
+              "enum": ["twitter","facebook", "mailing"],
+              "default": ["twitter","facebook", "mailing"]
             }
           } 
         }
