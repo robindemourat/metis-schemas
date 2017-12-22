@@ -13,10 +13,12 @@
     },
     "filename": {
       "type": "string",
-      "description": "filetype of the asset"
+      "description": "filetype of the asset",
+      "editable": false
     },
     "mimetype": {
-      "type": "string"
+      "type": "string",
+      "editable": false
     }
   },
   "required": ["type", "filename"]
