@@ -130,14 +130,14 @@
         "type": "object",
         "description": "static montage data properties",
         "properties": {
+          "cover_color": {
+            "type": "string",
+            "default": "",
+            "description": "color of the cover for the montage"
+          },
           "compositions": {
             "type": "array",
             "description": "compositions summary",
-            "cover_color": {
-              "type": "string",
-              "default": "",
-              "description": "color of the cover for the montage"
-            },
             "items": {
               "type": "object",
               "description": "composition summonning",
@@ -159,6 +159,11 @@
                 }
               }
             }
+          },
+          "colophon": {
+            "type": "string",
+            "default": "",
+            "description": "colophon of the montage"
           },
           "css_code": {
             "type": "string",
