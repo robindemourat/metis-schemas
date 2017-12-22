@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "title": "Deliverable",
+  "description": "Deliverable schema",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["deliverable"],
+      "default": "deliverable",
+      "editable": false
+    },
+    "date_produced": {
+      "type": "number",
+      "description": "absolute time date when the deliverable was made",
+      "editable": false
+    },
+    "diffusion_id": {
+      "type": "string",
+      "description": "id of the diffusion having created the deliverable"
+    },
+    "montage_id": {
+      "type": "string",
+      "description": "id of the montage being represented"
+    },
+    "montage_type": {
+      "type": "string",
+      "description": "type of the montage being represented",
+      "enum": ["micropublication", "dynamic", "static"],
+      "editable": false
+    },
+    "montage_title": {
+      "type": "string",
+      "description": "title of the montage being represented",
+      "editable": false
+    },
+    "version": {
+      "type": "string",
+      "description": "version of the deliverable",
+      "editable": false
+    },
+    "filename": {
+      "type": "string",
+      "description": "filename of the deliverable"
+    },
+    "mimetype": {
+      "type": "string",
+      "description": "mimetype of the deliverable",
+      "editable": false
+    }
+  },
+  "required": ["type"]
+}

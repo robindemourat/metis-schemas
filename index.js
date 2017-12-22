@@ -5,4 +5,5 @@ module.exports = {
   Composition: require('./composition.schema.json'),
   Montage: require('./montage.schema.json'),
   Diffusion: require('./diffusion.schema.json'),
+  Deliverable: require('./deliverable.schema.json'),
 }
