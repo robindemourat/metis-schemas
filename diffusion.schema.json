@@ -46,9 +46,11 @@
     "parameters": {
       "default": {},
       "description": "montage parameters",
-      "oneOfFrom": "montage_type",
-      "oneOf": [
-        { "$ref": "#/definitions/micropublication" }
+      "anyOfFrom": "montage_type",
+      "anyOf": [
+        { "$ref": "#/definitions/micropublication" },
+        { "$ref": "#/definitions/static" },
+        { "$ref": "#/definitions/dynamic" }
       ]
     }
   },
@@ -70,6 +72,46 @@
             }
           } 
         }
+      },
+      "dynamic": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string",
+            "description": "version of the release"
+          },
+          "targets":{
+            "type": "array",
+            "title": "targets",
+            "default": [],
+            "items":
+              {
+                "type": "string",
+                "enum": ["web","epub"],
+                "default": ["web","epub"]
+              }
+            } 
+          }
+      },
+      "static": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string",
+            "description": "version of the release"
+          },
+          "targets":{
+            "type": "array",
+            "title": "targets",
+            "default": [],
+            "items":
+              {
+                "type": "string",
+                "enum": ["pdf","epub"],
+                "default": ["pdf","epub"]
+              }
+            } 
+          }
       }
     }
 }
