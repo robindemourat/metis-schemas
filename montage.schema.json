@@ -58,8 +58,8 @@
         "data": {
           "default": {},
           "description": "data of the montage (depends on montage type)",
-          "oneOfFrom": "metadata.montage_type",
-          "oneOf": [
+          "anyOfFrom": "metadata.montage_type",
+          "anyOf": [
             { "$ref": "#/definitions/micropublication" },
             { "$ref": "#/definitions/dynamic" },
             { "$ref": "#/definitions/static" }

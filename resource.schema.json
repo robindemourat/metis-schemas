@@ -58,8 +58,8 @@
         "data": {
           "default": {},
           "description": "data of the resource (depends on resource type)",
-          "oneOfFrom": "metadata.ressource_type",
-          "oneOf": [
+          "anyOfFrom": "metadata.ressource_type",
+          "anyOf": [
             { "$ref": "#/definitions/image" }
           ]
         }
