@@ -34,13 +34,13 @@
     "status": {
       "type": "string",
       "description": "status of the diffusion",
-      "enum": ["processing", "success", "failure"],
-      "default": "processing",
+      "enum": ["waiting", "processing", "success", "failure"],
+      "default": "waiting",
       "editable": false
     },
-    "comment": {
+    "version": {
       "type": "string",
-      "description": "comment on the diffusion",
+      "description": "comment on the version of the diffusion diffusion",
       "default": ""
     },
     "parameters": {
