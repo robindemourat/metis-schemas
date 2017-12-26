@@ -1,225 +1,277 @@
 {
-  "id": "montage",
-  "title": "Montage",
-  "description": "Montage used in plurishing",
-  "$schema": "http://json-schema.org/draft-06/schema#",
-  "type": "object",
-  "properties": {
-    "type": {
-      "type": "string",
-      "enum": ["montage"],
-      "default": "montage",
-      "editable": false
-    },
-    "metadata": {
-      "description": "metadata of the montage",
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": "string",
-          "description": "Title of the montage",
-          "default": ""
+    "id": "montage",
+    "title": "Montage",
+    "description": "Montage used in plurishing",
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "type": "object",
+    "properties":
+    {
+        "type":
+        {
+            "type": "string",
+            "enum": ["montage"],
+            "default": "montage",
+            "editable": false
         },
-        "creators": {
-          "type": "array",
-          "description": "creators of the montage",
-          "default": [],
-          "items": {
+        "metadata":
+        {
+            "description": "metadata of the montage",
             "type": "object",
-            "properties": {
-              "given": {
-                "type": "string",
-                "default": ""
-              },
-              "family": {
-                "type": "string",
-                "default": ""
-              },
-              "role": {
-                "type": "string",
-                "default": ""
-              }
+            "properties":
+            {
+                "title":
+                {
+                    "type": "string",
+                    "description": "Title of the montage",
+                    "default": ""
+                },
+                "creators":
+                {
+                    "type": "array",
+                    "description": "creators of the montage",
+                    "default": [],
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "given":
+                            {
+                                "type": "string",
+                                "default": ""
+                            },
+                            "family":
+                            {
+                                "type": "string",
+                                "default": ""
+                            },
+                            "role":
+                            {
+                                "type": "string",
+                                "default": ""
+                            }
+                        },
+                        "required": ["given", "family"]
+                    }
+                },
+                "montage_type":
+                {
+                    "type": "string",
+                    "enum": ["micropublication", "dynamic", "static"],
+                    "default": "micropublication"
+                },
+                "description":
+                {
+                    "type": "string",
+                    "default": ""
+                }
+            }
+        },
+        "data":
+        {
+            "default":
+            {},
+            "description": "data of the montage (depends on montage type)",
+            "anyOfFrom": "metadata.montage_type",
+            "anyOf": [
+            {
+                "$ref": "#/definitions/micropublication"
             },
-            "required": ["given", "family"]
-          }
-        },
-        "montage_type": {
-          "type": "string",
-          "enum": ["micropublication", "dynamic", "static"],
-          "default": "micropublication"
-        },
-        "description": {
-          "type": "string",
-          "default": ""
+            {
+                "$ref": "#/definitions/dynamic"
+            },
+            {
+                "$ref": "#/definitions/static"
+            }]
         }
-      }
     },
-    "data": {
-      "default": {},
-      "description": "data of the montage (depends on montage type)",
-      "anyOfFrom": "metadata.montage_type",
-      "anyOf": [{
-          "$ref": "#/definitions/micropublication"
-        },
-        {
-          "$ref": "#/definitions/dynamic"
-        },
-        {
-          "$ref": "#/definitions/static"
-        }
-      ]
-    }
-  },
-  "required": ["type", "metadata", "data"],
+    "required": ["type", "metadata", "data"],
 
-  "definitions": {
-    "micropublication": {
-      "type": "object",
-      "description": "micropublication montage data properties",
-      "properties": {
-        "target_composition_id": {
-          "type": "string",
-          "description": "composition to use for building the micropublication"
-        },
-        "include_abstract": {
-          "type": "boolean",
-          "default": true,
-          "description": "whether to include abstract in the micropublication"
-        },
-        "link": {
-          "type": "string",
-          "description": "the link to point to from the montage"
-        }
-      },
-      "additionalProperties": false
-    },
-    "dynamic": {
-      "type": "object",
-      "description": "dynamic montage data properties",
-      "properties": {
-        "compositions": {
-          "type": "array",
-          "description": "compositions summary",
-          "default": [],
-          "items": {
+    "definitions":
+    {
+        "micropublication":
+        {
             "type": "object",
-            "description": "composition summonning",
-            "properties": {
-              "target_composition_id": {
-                "type": "string",
-                "description": "composition to summon"
-              },
-              "template": {
-                "type": "string",
-                "description": "template to use for displaying this composition",
-                "enum": ["article", "fullscreen"],
-                "default": "article"
-              },
-              "css": {
-                "type": "object",
-                "description": "css code of the composition",
-                "properties": {
-                  "shared_css_code": {
-                    "description": "css code for all versions of the composition",
+            "description": "micropublication montage data properties",
+            "properties":
+            {
+                "target_composition_id":
+                {
                     "type": "string",
-                    "default": ""
-                  },
-                  "pdf_css_code": {
-                    "description": "css code for pdf versions of the composition",
-                    "type": "string",
-                    "default": ""
-                  },
-                  "epub_css_code": {
-                    "description": "css code for epub versions of the composition",
-                    "type": "string",
-                    "default": ""
-                  }
-                }
-              }
-            }
-          },
-          "css": {
-            "type": "object",
-            "description": "css code of the montage",
-            "properties": {
-              "shared_css_code": {
-                "description": "css code for all versions of the montage",
-                "type": "string",
-                "default": ""
-              },
-              "web_css_code": {
-                "description": "css code for pdf versions of the montage",
-                "type": "string",
-                "default": ""
-              },
-              "epub_css_code": {
-                "description": "css code for epub versions of the montage",
-                "type": "string",
-                "default": ""
-              }
-            }
-          },
-          "additionalProperties": false
-        },
-        "static": {
-          "type": "object",
-          "description": "static montage data properties",
-          "properties": {
-            "cover_color": {
-              "type": "string",
-              "default": "#FFFFFF",
-              "description": "color of the cover for the montage"
-            },
-            "compositions": {
-              "type": "array",
-              "description": "compositions summary",
-              "items": {
-                "type": "object",
-                "description": "composition summonning",
-                "properties": {
-                  "target_composition_id": {
-                    "type": "string",
-                    "description": "composition to summon"
-                  },
-                  "template": {
-                    "type": "string",
-                    "description": "template to use for displaying this composition",
-                    "enum": ["article"],
-                    "default": "article"
-                  }
-                }
-              }
-            },
-            "colophon": {
-              "type": "string",
-              "default": "",
-              "description": "colophon of the montage"
-            },
-            "css": {
-              "type": "object",
-              "description": "css code of the montage",
-              "properties": {
-                "shared_css_code": {
-                  "description": "css code for all versions of the montage",
-                  "type": "string",
-                  "default": ""
+                    "description": "composition to use for building the micropublication"
                 },
-                "pdf_css_code": {
-                  "description": "css code for pdf versions of the montage",
-                  "type": "string",
-                  "default": ""
+                "include_abstract":
+                {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "whether to include abstract in the micropublication"
                 },
-                "epub_css_code": {
-                  "description": "css code for epub versions of the montage",
-                  "type": "string",
-                  "default": ""
+                "link":
+                {
+                    "type": "string",
+                    "description": "the link to point to from the montage"
                 }
-              }
             },
             "additionalProperties": false
-          }
+        },
+        "dynamic":
+        {
+            "type": "object",
+            "description": "dynamic montage data properties",
+            "properties":
+            {
+                "compositions":
+                {
+                    "type": "array",
+                    "description": "compositions summary",
+                    "default": [],
+                    "items":
+                    {
+                        "type": "object",
+                        "description": "composition summonning",
+                        "properties":
+                        {
+                            "target_composition_id":
+                            {
+                                "type": "string",
+                                "description": "composition to summon"
+                            },
+                            "template":
+                            {
+                                "type": "string",
+                                "description": "template to use for displaying this composition",
+                                "enum": ["article", "fullscreen"],
+                                "default": "article"
+                            },
+                            "css":
+                            {
+                                "type": "object",
+                                "description": "css code of the composition",
+                                "properties":
+                                {
+                                    "shared_css_code":
+                                    {
+                                        "description": "css code for all versions of the composition",
+                                        "type": "string",
+                                        "default": ""
+                                    },
+                                    "pdf_css_code":
+                                    {
+                                        "description": "css code for pdf versions of the composition",
+                                        "type": "string",
+                                        "default": ""
+                                    },
+                                    "epub_css_code":
+                                    {
+                                        "description": "css code for epub versions of the composition",
+                                        "type": "string",
+                                        "default": ""
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "css":
+                {
+                    "type": "object",
+                    "description": "css code of the montage",
+                    "properties":
+                    {
+                        "shared_css_code":
+                        {
+                            "description": "css code for all versions of the montage",
+                            "type": "string",
+                            "default": ""
+                        },
+                        "web_css_code":
+                        {
+                            "description": "css code for pdf versions of the montage",
+                            "type": "string",
+                            "default": ""
+                        },
+                        "epub_css_code":
+                        {
+                            "description": "css code for epub versions of the montage",
+                            "type": "string",
+                            "default": ""
+                        }
+                    }
+                },
+                "additionalProperties": false
+            },
+            "static":
+            {
+                "type": "object",
+                "description": "static montage data properties",
+                "properties":
+                {
+                    "cover_color":
+                    {
+                        "type": "string",
+                        "default": "#FFFFFF",
+                        "description": "color of the cover for the montage"
+                    },
+                    "compositions":
+                    {
+                        "type": "array",
+                        "description": "compositions summary",
+                        "items":
+                        {
+                            "type": "object",
+                            "description": "composition summonning",
+                            "properties":
+                            {
+                                "target_composition_id":
+                                {
+                                    "type": "string",
+                                    "description": "composition to summon"
+                                },
+                                "template":
+                                {
+                                    "type": "string",
+                                    "description": "template to use for displaying this composition",
+                                    "enum": ["article"],
+                                    "default": "article"
+                                }
+                            }
+                        }
+                    },
+                    "colophon":
+                    {
+                        "type": "string",
+                        "default": "",
+                        "description": "colophon of the montage"
+                    },
+                    "css":
+                    {
+                        "type": "object",
+                        "description": "css code of the montage",
+                        "properties":
+                        {
+                            "shared_css_code":
+                            {
+                                "description": "css code for all versions of the montage",
+                                "type": "string",
+                                "default": ""
+                            },
+                            "pdf_css_code":
+                            {
+                                "description": "css code for pdf versions of the montage",
+                                "type": "string",
+                                "default": ""
+                            },
+                            "epub_css_code":
+                            {
+                                "description": "css code for epub versions of the montage",
+                                "type": "string",
+                                "default": ""
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            }
         }
-      }
     }
-  }
 }
