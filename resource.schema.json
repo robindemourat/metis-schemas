@@ -6,90 +6,354 @@
     "type": "object",
     "properties":
     {
-        "type": {
-          "type": "string",
-          "enum": ["resource"],
-          "default": "resource",
-          "editable": false
+        "type":
+        {
+            "type": "string",
+            "enum": ["resource"],
+            "default": "resource",
+            "editable": false
         },
-        "metadata": {
-          "description": "metadata of the resource",
-          "type": "object",
-            "properties": {
-              "name": {
-                "type": "string",
-                "description": "Name of the resource",
-                "default": ""
-              },
-              "creators": {
-                "type": "array",
-                "description": "creators of the resource",
-                "default": [],
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "given": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "family": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "role": {
-                      "type": "string",
-                      "default": ""
+        "metadata":
+        {
+            "description": "metadata of the resource",
+            "type": "object",
+            "properties":
+            {
+                "name":
+                {
+                    "type": "string",
+                    "description": "Name of the resource",
+                    "default": ""
+                },
+                "creators":
+                {
+                    "type": "array",
+                    "description": "creators of the resource",
+                    "default": [],
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "given":
+                            {
+                                "type": "string",
+                                "default": ""
+                            },
+                            "family":
+                            {
+                                "type": "string",
+                                "default": ""
+                            },
+                            "role":
+                            {
+                                "type": "string",
+                                "default": ""
+                            }
+                        },
+                        "required": ["given", "family"]
                     }
-                  },
-                  "required": ["given", "family"]
+                },
+                "ressource_type":
+                {
+                    "type": "string",
+                    "enum": ["mobiliscene", "image", "imagesgallery", "audio", "table", "bib", "video", "iframe"],
+                    "default": "image"
+                },
+                "description":
+                {
+                    "type": "string",
+                    "description": "description of the resource",
+                    "default": ""
                 }
-              },
-              "ressource_type": {
-                "type": "string",
-                "enum": ["image"],
-                "default": "image"
-              },
-              "description": {
-                "type": "string",
-                "default": ""
-              }
             }
         },
-        "data": {
-          "default": {},
-          "description": "data of the resource (depends on resource type)",
-          "anyOfFrom": "metadata.ressource_type",
-          "anyOf": [
-            { "$ref": "#/definitions/image" }
-          ]
+        "data":
+        {
+            "default":
+            {},
+            "description": "data of the resource (depends on resource type)",
+            "anyOfFrom": "metadata.ressource_type",
+            "anyOf": [
+            {
+                "$ref": "#/definitions/mobiliscene"
+            },
+            {
+                "$ref": "#/definitions/image"
+            },
+            {
+                "$ref": "#/definitions/imagesgallery"
+            },
+            {
+                "$ref": "#/definitions/audio"
+            },
+            {
+                "$ref": "#/definitions/table"
+            },
+            {
+                "$ref": "#/definitions/bib"
+            },
+            {
+                "$ref": "#/definitions/video"
+            },
+            {
+                "$ref": "#/definitions/iframe"
+            }]
         }
     },
     "required": ["type", "metadata", "data"],
 
-    "definitions": {
-      "image": {
-        "type": "object",
-         "properties": {
-          "rgb_image_asset_id": {
-            "type": "string",
-            "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
-            "description": "rgb/rvb image asset uuid of the resource",
-            "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
-          },
-          "cmyb_image_asset_id": {
-            "type": "string",
-            "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
-            "description": "cmyb/cmjn image asset uuid of the resource",
-            "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
-          },
-          "bw_image_asset_id": {
-            "type": "string",
-            "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
-            "description": "black & white image asset uuid of the resource",
-            "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+    "definitions":
+    {
+        "mobiliscene":
+        {
+          "type": "object",
+          "properties": 
+          {
+            "content_type": {
+              "type": "string",
+              "enum": ["video", "text"],
+              "default": "video",
+              "description": "content type of the player (video or text)"
+            },
+            "geometry": {
+              "type": "string",
+              "enum": ["cube", "sphere", "cylinder"],
+              "default": "sphere",
+              "description": "geometry to project the content on"
+            },
+            "content_asset_id":
+            {
+              "type": "string",
+              "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+              "description": "content asset uuid of the resource (can be a video or plain text)",
+              "accept_mimetypes": ["video/x-msvideo", "video/mpeg", "video/ogg", "video/webm", "text/plain"]
+            },
+            "screencast_video_asset_id":
+            {
+              "type": "string",
+              "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+              "description": "screencast video asset uuid of the resource",
+              "accept_mimetypes": ["video/x-msvideo", "video/mpeg", "video/ogg", "video/webm"]
+            },
+            "rgb_image_asset_id":
+            {
+                "type": "string",
+                "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+                "description": "rgb/rvb image asset uuid of the resource",
+                "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+            },
+            "cmyb_image_asset_id":
+            {
+                "type": "string",
+                "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+                "description": "cmyb/cmjn image asset uuid of the resource",
+                "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+            },
+            "bw_image_asset_id":
+            {
+                "type": "string",
+                "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+                "description": "black & white image asset uuid of the resource",
+                "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+            }
           }
-         },
+        },
+        "image":
+        {
+            "type": "object",
+            "properties":
+            {
+                "rgb_image_asset_id":
+                {
+                    "type": "string",
+                    "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+                    "description": "rgb/rvb image asset uuid of the resource",
+                    "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+                },
+                "cmyb_image_asset_id":
+                {
+                    "type": "string",
+                    "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+                    "description": "cmyb/cmjn image asset uuid of the resource",
+                    "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+                },
+                "bw_image_asset_id":
+                {
+                    "type": "string",
+                    "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+                    "description": "black & white image asset uuid of the resource",
+                    "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+                }
+            },
+            "additionalProperties": false
+        },
+        "imagesgallery":
+        {
+            "type": "array",
+            "items":
+            {
+                "type": "object",
+                "properties":
+                {
+                    "rgb_image_asset_id":
+                    {
+                        "type": "string",
+                        "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+                        "description": "rgb/rvb image asset uuid of the resource",
+                        "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+                    },
+                    "cmyb_image_asset_id":
+                    {
+                        "type": "string",
+                        "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+                        "description": "cmyb/cmjn image asset uuid of the resource",
+                        "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+                    },
+                    "bw_image_asset_id":
+                    {
+                        "type": "string",
+                        "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+                        "description": "black & white image asset uuid of the resource",
+                        "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+                    }
+                }
+            },
+            "additionalProperties": false
+        },
+        "audio":
+        {
+          "type": "object",
+          "properties": {
+            "audio_track_asset_id":
+            {
+              "type": "string",
+              "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+              "description": "audio track asset uuid of the resource",
+              "accept_mimetypes": ["audio/mpeg", "audio/mp3"]
+            },
+            "transcription": {
+              "type": "string",
+              "description": "transcription of the audio track"
+            }
+          },
           "additionalProperties": false
-      }
+        },
+        "table":
+        {
+          "type": "object",
+          "properties": {
+            "data_asset_id":
+            {
+              "type": "string",
+              "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+              "description": "data asset uuid of the resource",
+              "accept_mimetypes": ["text/csv"]
+            }
+          },
+          "additionalProperties": false
+        },
+        "video":
+        {
+          "type": "object",
+          "properties": {
+            "hd_video_asset_id":
+            {
+              "type": "string",
+              "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+              "description": "high definition video asset uuid of the resource",
+              "accept_mimetypes": ["video/x-msvideo", "video/mpeg", "video/ogg", "video/webm"]
+            },
+            "sd_video_asset_id":
+            {
+              "type": "string",
+              "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+              "description": "small definition video asset uuid of the resource",
+              "accept_mimetypes": ["video/x-msvideo", "video/mpeg", "video/ogg", "video/webm"]
+            },
+            "rgb_image_asset_id":
+            {
+                "type": "string",
+                "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+                "description": "rgb/rvb image asset uuid of the resource",
+                "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+            },
+            "cmyb_image_asset_id":
+            {
+                "type": "string",
+                "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+                "description": "cmyb/cmjn image asset uuid of the resource",
+                "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+            },
+            "bw_image_asset_id":
+            {
+                "type": "string",
+                "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+                "description": "black & white image asset uuid of the resource",
+                "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+            }
+          },
+          "additionalProperties": false
+        },
+        "bib":
+        {
+          "type": "object",
+          "properties": {
+            "data_asset_id":
+            {
+              "type": "string",
+              "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+              "description": "data asset uuid of the resource",
+              "accept_mimetypes": ["application/x-bibtex"]
+            }
+          },
+          "additionalProperties": false
+        },
+        "iframe":
+        {
+          "type": "object",
+          "properties": {
+            "url":
+            {
+              "type": "string",
+              "description": "url of the iframe view"
+            },
+            "backup_asset_id":
+            {
+              "type": "string",
+              "description": "backup html page asset uuid of the resource",
+              "accept_mimetypes": ["text/html"]
+            },
+            "screencast_video_asset_id":
+            {
+              "type": "string",
+              "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+              "description": "screencast video asset uuid of the resource",
+              "accept_mimetypes": ["video/x-msvideo", "video/mpeg", "video/ogg", "video/webm"]
+            },
+            "rgb_image_asset_id":
+            {
+                "type": "string",
+                "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+                "description": "rgb/rvb image asset uuid of the resource",
+                "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+            },
+            "cmyb_image_asset_id":
+            {
+                "type": "string",
+                "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+                "description": "cmyb/cmjn image asset uuid of the resource",
+                "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+            },
+            "bw_image_asset_id":
+            {
+                "type": "string",
+                "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+                "description": "black & white image asset uuid of the resource",
+                "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+            }
+          },
+          "additionalProperties": false
+        }
     }
 }
