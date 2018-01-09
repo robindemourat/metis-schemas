@@ -232,9 +232,11 @@
               "description": "audio track asset uuid of the resource",
               "accept_mimetypes": ["audio/mpeg", "audio/mp3"]
             },
-            "transcription": {
+            "transcription_asset_id": {
               "type": "string",
-              "description": "transcription of the audio track"
+              "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+              "description": "transcription of the audio track asset uuid of the resource",
+              "accept_mimetypes": ["text/plain", "audio/srt"]
             }
           },
           "additionalProperties": false
