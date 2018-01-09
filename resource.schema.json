@@ -250,7 +250,7 @@
               "type": "string",
               "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
               "description": "data asset uuid of the resource",
-              "accept_mimetypes": ["text/csv"]
+              "accept_mimetypes": ["text/csv", "text/tsv"]
             }
           },
           "additionalProperties": false
