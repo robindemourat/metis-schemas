@@ -198,6 +198,7 @@
         "imagesgallery":
         {
             "type": "array",
+            "default": [],
             "items":
             {
                 "type": "object",
