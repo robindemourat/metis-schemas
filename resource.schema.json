@@ -127,7 +127,7 @@
               "type": "string",
               "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
               "description": "content asset uuid of the resource (can be a video or plain text)",
-              "accept_mimetypes": ["video/x-msvideo", "video/mpeg", "video/ogg", "video/webm", "text/plain"]
+              "accept_mimetypes": ["video/x-msvideo", "video/mpeg", "video/ogg", "video/webm", "video/mp4", "text/plain"]
             },
             "font_asset_id":
             {
@@ -141,7 +141,7 @@
               "type": "string",
               "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
               "description": "screencast video asset uuid of the resource",
-              "accept_mimetypes": ["video/x-msvideo", "video/mpeg", "video/ogg", "video/webm"]
+              "accept_mimetypes": ["video/x-msvideo", "video/mpeg", "video/ogg", "video/webm", "video/mp4"]
             },
             "rgb_image_asset_id":
             {
@@ -271,14 +271,14 @@
               "type": "string",
               "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
               "description": "high definition video asset uuid of the resource",
-              "accept_mimetypes": ["video/x-msvideo", "video/mpeg", "video/ogg", "video/webm", "video/3gp"]
+              "accept_mimetypes": ["video/x-msvideo", "video/mpeg", "video/ogg", "video/webm", "video/3gp", "video/mp4"]
             },
             "sd_video_asset_id":
             {
               "type": "string",
               "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
               "description": "small definition video asset uuid of the resource",
-              "accept_mimetypes": ["video/x-msvideo", "video/mpeg", "video/ogg", "video/webm", "video/3gp"]
+              "accept_mimetypes": ["video/x-msvideo", "video/mpeg", "video/ogg", "video/webm", "video/3gp", "video/mp4"]
             },
             "rgb_image_asset_id":
             {
@@ -338,7 +338,7 @@
               "type": "string",
               "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
               "description": "screencast video asset uuid of the resource",
-              "accept_mimetypes": ["video/x-msvideo", "video/mpeg", "video/ogg", "video/webm"]
+              "accept_mimetypes": ["video/x-msvideo", "video/mpeg", "video/ogg", "video/webm", "video/mp4"]
             },
             "rgb_image_asset_id":
             {
