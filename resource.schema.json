@@ -129,6 +129,13 @@
               "description": "content asset uuid of the resource (can be a video or plain text)",
               "accept_mimetypes": ["video/x-msvideo", "video/mpeg", "video/ogg", "video/webm", "text/plain"]
             },
+            "font_asset_id":
+            {
+              "type": "string",
+              "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+              "description": "font json file asset uuid of the resource",
+              "accept_mimetypes": ["application/json"]
+            },
             "screencast_video_asset_id":
             {
               "type": "string",
