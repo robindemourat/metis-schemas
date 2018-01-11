@@ -73,7 +73,7 @@
             "default":
             {},
             "description": "data of the resource (depends on resource type)",
-            "anyOfFrom": "metadata.ressource_type",
+            "anyOfFrom": "metadata.resource_type",
             "anyOf": [
             {
                 "$ref": "#/definitions/mobiliscene"
