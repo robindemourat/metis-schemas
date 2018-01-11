@@ -57,7 +57,7 @@
                 "resource_type":
                 {
                     "type": "string",
-                    "enum": ["mobiliscene", "image", "imagesgallery", "audio", "table", "bib", "video", "iframe"],
+                    "enum": ["mobiliscene", "image", "imagesgallery", "audio", "table", "bib", "video", "webpage"],
                     "default": "image"
                 },
                 "description":
@@ -97,7 +97,7 @@
                 "$ref": "#/definitions/video"
             },
             {
-                "$ref": "#/definitions/iframe"
+                "$ref": "#/definitions/webpage"
             }]
         }
     },
@@ -319,14 +319,14 @@
           },
           "additionalProperties": false
         },
-        "iframe":
+        "webpage":
         {
           "type": "object",
           "properties": {
             "url":
             {
               "type": "string",
-              "description": "url of the iframe view"
+              "description": "url of the webpage view"
             },
             "backup_asset_id":
             {
