@@ -54,7 +54,7 @@
                         "required": ["given", "family"]
                     }
                 },
-                "ressource_type":
+                "resource_type":
                 {
                     "type": "string",
                     "enum": ["mobiliscene", "image", "imagesgallery", "audio", "table", "bib", "video", "iframe"],
