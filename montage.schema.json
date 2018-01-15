@@ -119,20 +119,20 @@
                 "description": "css code of the composition",
                 "properties": {
                   "shared_css_code": {
-                    "description": "css code for all versions of the composition",
-                    "type": "string",
-                    "default": ""
-                  },
-                  "pdf_css_code": {
-                    "description": "css code for pdf versions of the composition",
-                    "type": "string",
-                    "default": ""
-                  },
-                  "epub_css_code": {
-                    "description": "css code for epub versions of the composition",
-                    "type": "string",
-                    "default": ""
-                  }
+                      "description": "css code for all versions of the composition",
+                      "type": "string",
+                      "default": ""
+                    },
+                    "web_css_code": {
+                      "description": "css code for pdf versions of the composition",
+                      "type": "string",
+                      "default": ""
+                    },
+                    "epub_css_code": {
+                      "description": "css code for epub versions of the composition",
+                      "type": "string",
+                      "default": ""
+                    }
                 }
               }
             }
