@@ -64,6 +64,7 @@
                 {
                     "type": "string",
                     "description": "description of the resource",
+                    "longString": true,
                     "default": ""
                 }
             }

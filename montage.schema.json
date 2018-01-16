@@ -50,6 +50,7 @@
         },
         "description": {
           "type": "string",
+          "longString": true,
           "default": ""
         }
       }
@@ -193,6 +194,7 @@
         "colophon": {
           "type": "string",
           "default": "",
+          "longString": true,
           "description": "colophon of the montage"
         },
         "css": {

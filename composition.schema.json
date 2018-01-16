@@ -63,11 +63,13 @@
                 "abstract_original":
                 {
                     "type": "string",
+                    "longString": true,
                     "default": ""
                 },
                 "abstract_english":
                 {
                     "type": "string",
+                    "longString": true,
                     "default": ""
                 }
             }
@@ -206,6 +208,7 @@
             },
             "legend": {
                 "type": "string",
+                "longString": true,
                 "description": "legend of the contextualization",
                 "default": ""
             }
