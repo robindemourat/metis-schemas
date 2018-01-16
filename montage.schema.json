@@ -90,7 +90,27 @@
         "link": {
           "type": "string",
           "description": "the link to point to from the montage"
-        }
+        },
+        "attached_assets":
+        {
+              "type": "array",
+              "default": [],
+              "description": "image assets to publish with the diffusion",
+              "items":
+              {
+                  "type": "object",
+                  "properties":
+                  {
+                      "image_asset_id":
+                      {
+                          "type": "string",
+                          "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+                          "description": "image asset uuid",
+                          "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+                      }
+                  }
+              }
+          }
       }
     },
     "dynamic": {
