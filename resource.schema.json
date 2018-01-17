@@ -19,6 +19,13 @@
             "type": "object",
             "properties":
             {
+                "resource_type":
+                {
+                    "type": "string",
+                    "enum": ["mobiliscene", "image", "imagesgallery", "audio", "table", "bib", "video", "webpage"],
+                    "default": "image"
+                },
+                
                 "name":
                 {
                     "type": "string",
@@ -53,12 +60,6 @@
                         },
                         "required": ["given", "family"]
                     }
-                },
-                "resource_type":
-                {
-                    "type": "string",
-                    "enum": ["mobiliscene", "image", "imagesgallery", "audio", "table", "bib", "video", "webpage"],
-                    "default": "image"
                 },
                 "description":
                 {
