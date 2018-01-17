@@ -191,6 +191,11 @@
           "default": "#FFFFFF",
           "description": "color of the cover for the montage"
         },
+        "backcover_color": {
+          "type": "string",
+          "default": "#FFFFFF",
+          "description": "color of the back cover for the montage"
+        },
         "compositions": {
           "type": "array",
           "description": "compositions summary",
