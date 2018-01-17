@@ -4,7 +4,7 @@
   "description": "Multimodal publishing schemas",
   "main": "index.js",
   "author": "Robin de Mourat <robin.demourat@gmail.com> (https://github.com/robindemourat)",
-  "license": "ISC",
+  "license": "LGPL-3.0",
   "bugs": {
     "url": "https://github.com/robindemourat/plurishing-schemas/issues"
   },
