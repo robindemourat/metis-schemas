@@ -31,6 +31,16 @@
                     "description": "Subtitle of the composition",
                     "default": ""
                 },
+                "keywords":
+                {
+                    "type": "array",
+                    "description": "Keywords describing the composition",
+                    "default": [],
+                    "items": {
+                        "type": "string",
+                        "default": ""
+                    }
+                },
                 "creators":
                 {
                     "type": "array",
@@ -54,6 +64,12 @@
                             "role":
                             {
                                 "type": "string",
+                                "default": ""
+                            },
+                            "presentation":
+                            {
+                                "type": "string",
+                                "longString": true,
                                 "default": ""
                             }
                         },
