@@ -242,14 +242,12 @@
               "description": "audio track asset uuid of the resource",
               "accept_mimetypes": ["audio/mpeg", "audio/mp3"]
             },
-            "transcription_asset_id": {
+            "transcription": {
               "type": "string",
-              "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
-              "description": "transcription of the audio track asset uuid of the resource",
-              "accept_mimetypes": ["text/plain", "text/srt", "application/x-subrip"]
+              "description": "transcription of the audio track",
+              "longString": true
             }
-          },
-          "additionalProperties": false
+          }
         },
         "table":
         {
