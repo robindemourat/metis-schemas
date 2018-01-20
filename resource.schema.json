@@ -150,21 +150,21 @@
                 "type": "string",
                 "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
                 "description": "rgb/rvb image asset uuid of the resource",
-                "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+                "accept_mimetypes": ["image/png","image/svg+xml", "image/jpeg", "image/jpg", "image/gif"]
             },
             "cmyb_image_asset_id":
             {
                 "type": "string",
                 "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
                 "description": "cmyb/cmjn image asset uuid of the resource",
-                "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+                "accept_mimetypes": ["image/png","image/svg+xml", "image/jpeg", "image/jpg", "image/gif"]
             },
             "bw_image_asset_id":
             {
                 "type": "string",
                 "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
                 "description": "black & white image asset uuid of the resource",
-                "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+                "accept_mimetypes": ["image/png","image/svg+xml", "image/jpeg", "image/jpg", "image/gif"]
             }
           }
         },
@@ -178,21 +178,21 @@
                     "type": "string",
                     "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
                     "description": "rgb/rvb image asset uuid of the resource",
-                    "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+                    "accept_mimetypes": ["image/png","image/svg+xml", "image/jpeg", "image/jpg", "image/gif"]
                 },
                 "cmyb_image_asset_id":
                 {
                     "type": "string",
                     "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
                     "description": "cmyb/cmjn image asset uuid of the resource",
-                    "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+                    "accept_mimetypes": ["image/png","image/svg+xml", "image/jpeg", "image/jpg", "image/gif"]
                 },
                 "bw_image_asset_id":
                 {
                     "type": "string",
                     "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
                     "description": "black & white image asset uuid of the resource",
-                    "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+                    "accept_mimetypes": ["image/png","image/svg+xml", "image/jpeg", "image/jpg", "image/gif"]
                 }
             },
             "additionalProperties": false
@@ -211,21 +211,21 @@
                         "type": "string",
                         "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
                         "description": "rgb/rvb image asset uuid of the resource",
-                        "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+                        "accept_mimetypes": ["image/png","image/svg+xml", "image/jpeg", "image/jpg", "image/gif"]
                     },
                     "cmyb_image_asset_id":
                     {
                         "type": "string",
                         "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
                         "description": "cmyb/cmjn image asset uuid of the resource",
-                        "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+                        "accept_mimetypes": ["image/png","image/svg+xml", "image/jpeg", "image/jpg", "image/gif"]
                     },
                     "bw_image_asset_id":
                     {
                         "type": "string",
                         "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
                         "description": "black & white image asset uuid of the resource",
-                        "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+                        "accept_mimetypes": ["image/png","image/svg+xml", "image/jpeg", "image/jpg", "image/gif"]
                     }
                 }
             },
@@ -288,21 +288,21 @@
                 "type": "string",
                 "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
                 "description": "rgb/rvb image asset uuid of the resource",
-                "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+                "accept_mimetypes": ["image/png","image/svg+xml", "image/jpeg", "image/jpg", "image/gif"]
             },
             "cmyb_image_asset_id":
             {
                 "type": "string",
                 "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
                 "description": "cmyb/cmjn image asset uuid of the resource",
-                "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+                "accept_mimetypes": ["image/png","image/svg+xml", "image/jpeg", "image/jpg", "image/gif"]
             },
             "bw_image_asset_id":
             {
                 "type": "string",
                 "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
                 "description": "black & white image asset uuid of the resource",
-                "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+                "accept_mimetypes": ["image/png","image/svg+xml", "image/jpeg", "image/jpg", "image/gif"]
             }
           },
           "additionalProperties": false
@@ -348,21 +348,21 @@
                 "type": "string",
                 "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
                 "description": "rgb/rvb image asset uuid of the resource",
-                "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+                "accept_mimetypes": ["image/png","image/svg+xml", "image/jpeg", "image/jpg", "image/gif"]
             },
             "cmyb_image_asset_id":
             {
                 "type": "string",
                 "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
                 "description": "cmyb/cmjn image asset uuid of the resource",
-                "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+                "accept_mimetypes": ["image/png","image/svg+xml", "image/jpeg", "image/jpg", "image/gif"]
             },
             "bw_image_asset_id":
             {
                 "type": "string",
                 "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
                 "description": "black & white image asset uuid of the resource",
-                "accept_mimetypes": ["image/png", "image/jpeg", "image/jpg", "image/gif"]
+                "accept_mimetypes": ["image/png","image/svg+xml", "image/jpeg", "image/jpg", "image/gif"]
             }
           },
           "additionalProperties": false
