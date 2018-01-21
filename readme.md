@@ -37,3 +37,7 @@ Please note that the schemas are enriched with some non-standard custom properti
 * `anyOfFrom` (String) : when object is an `anyOf`, indicates the path of a value to look for (e.g. `metadata.resource_type`) in the edited object to determine what alternative to choose for the related subschema reference UI display.
 * `accept_mimetypes` (Array of Strings) : for properties aimed at being displayed as a file input, determines which file types can be accepted
 
+## Licenses
+
+LGPL-3.0
+CECCIL-C
