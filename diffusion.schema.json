@@ -34,7 +34,7 @@
     "status": {
       "type": "string",
       "description": "status of the diffusion",
-      "enum": ["waiting", "processing", "success", "error"],
+      "enum": ["waiting", "processing", "success", "failure"],
       "default": "waiting",
       "editable": false
     },
