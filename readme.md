@@ -40,4 +40,5 @@ Please note that the schemas are enriched with some non-standard custom properti
 ## Licenses
 
 LGPL-3.0
+
 CECCIL-C
