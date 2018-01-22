@@ -148,11 +148,6 @@
                       "description": "css code for pdf versions of the composition",
                       "type": "string",
                       "default": ""
-                    },
-                    "epub_css_code": {
-                      "description": "css code for epub versions of the composition",
-                      "type": "string",
-                      "default": ""
                     }
                 }
               }
@@ -170,11 +165,6 @@
             },
             "web_css_code": {
               "description": "css code for pdf versions of the montage",
-              "type": "string",
-              "default": ""
-            },
-            "epub_css_code": {
-              "description": "css code for epub versions of the montage",
               "type": "string",
               "default": ""
             }
@@ -236,7 +226,12 @@
               "type": "string",
               "default": ""
             },
-            "epub_css_code": {
+            "epub-reflowable_css_code": {
+              "description": "css code for epub versions of the montage",
+              "type": "string",
+              "default": ""
+            },
+            "epub-fixed_css_code": {
               "description": "css code for epub versions of the montage",
               "type": "string",
               "default": ""
