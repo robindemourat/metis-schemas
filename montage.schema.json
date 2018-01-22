@@ -1,7 +1,7 @@
 {
   "id": "montage",
   "title": "Montage",
-  "description": "Montage used in plurishing",
+  "description": "Montage used in metis",
   "$schema": "http://json-schema.org/draft-06/schema#",
   "type": "object",
   "properties": {

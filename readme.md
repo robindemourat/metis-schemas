@@ -1,19 +1,19 @@
-Plurishing-schemas
+Metis-schemas
 ===
 
-This repository provides all the data schemas relative to the plurishing experiment. There are meant to be used in different server-side and client-side applications. These are written according to the [JSON Schema 6](http://json-schema.org/specification.html) specification.
+This repository provides all the data schemas relative to the metis experiment. There are meant to be used in different server-side and client-side applications. These are written according to the [JSON Schema 6](http://json-schema.org/specification.html) specification.
 
 # Installation
 
 
 ```
-npm install https://github.com/robindemourat/plurishing-schemas
+npm install https://github.com/robindemourat/metis-schemas
 ```
 
 # Usage
 
 ```
-import schemas from 'plurishing-schemas'
+import schemas from 'metis-schemas'
 
 const {
   Asset,

@@ -1,7 +1,7 @@
 {
     "id": "composition",
     "title": "Composition (aka peritext lite)",
-    "description": "Composition used in plurishing",
+    "description": "Composition used in metis",
     "$schema": "http://json-schema.org/draft-06/schema#",
     "type": "object",
     "properties":
