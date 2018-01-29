@@ -20,6 +20,11 @@
           "description": "Title of the montage",
           "default": ""
         },
+        "subtitle": {
+          "type": "string",
+          "description": "Subtitle of the montage",
+          "default": ""
+        },
         "creators": {
           "type": "array",
           "description": "creators of the montage",
