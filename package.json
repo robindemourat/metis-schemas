@@ -1,10 +1,10 @@
 {
   "name": "metis-schemas",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Multimodal publishing schemas",
   "main": "index.js",
   "author": "Robin de Mourat <robin.demourat@gmail.com> (https://github.com/robindemourat)",
-  "license": "LGPL-3.0",
+  "license": "lgpl-3.0",
   "bugs": {
     "url": "https://github.com/robindemourat/metis-schemas/issues"
   },
